@@ -1,6 +1,5 @@
 package com.masBarato.masBarato.infrastructure.dataBase.sql.repository;
 
-import com.masBarato.masBarato.domain.repository.IUserRepositoryPort;
 import com.masBarato.masBarato.infrastructure.dataBase.sql.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
