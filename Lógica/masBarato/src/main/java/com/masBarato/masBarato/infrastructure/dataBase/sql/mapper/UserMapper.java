@@ -2,7 +2,9 @@ package com.masBarato.masBarato.infrastructure.dataBase.sql.mapper;
 
 import com.masBarato.masBarato.domain.model.User;
 import com.masBarato.masBarato.infrastructure.dataBase.sql.entity.RolEntity;
+import com.masBarato.masBarato.infrastructure.dataBase.sql.entity.UserDeletedEntity;
 import com.masBarato.masBarato.infrastructure.dataBase.sql.entity.UserEntity;
+import com.masBarato.masBarato.useCase.User.UserDeleteInteractor;
 
 public class UserMapper {
     public static User fromUserEntityToUser(UserEntity userEntity) {
@@ -15,12 +17,15 @@ public class UserMapper {
                 userEntity.getGmail(),
                 userEntity.getUserName(),
                 userEntity.getPassword(),
-                userEntity.getRol().getRolName()
+                userEntity.getRol().getRolId(),
+                userEntity.getFkUserId().getUserId()
         );
     }
 
     public static UserEntity fromUserToUserEntity(User user) {
+
         UserEntity userEntity = new UserEntity();
+
         userEntity.setUserId(user.getUserId());
         userEntity.setName(user.getName());
         userEntity.setFirstLastName(user.getFirstLastName());
@@ -29,8 +34,51 @@ public class UserMapper {
         userEntity.setUserName(user.getUserName());
         userEntity.setPassword(user.getPassword());
         RolEntity rol = new RolEntity();
-        rol.setRolId(Integer.parseInt(user.getRoles()));
+        rol.setRolId(user.getRoles());
         userEntity.setRol(rol);
-       return userEntity;
+        if (user.getFk_userId() != null) {
+            UserEntity creador = new UserEntity();
+            creador.setUserId(user.getFk_userId());
+            userEntity.setFkUserId(creador);
+        } else {
+            userEntity.setFkUserId(null);
+        }
+        return userEntity;
+    }
+
+    public static UserDeletedEntity fromUserToUserDeleteEntity(User user) {
+        UserDeletedEntity userDeleted = new UserDeletedEntity();
+        userDeleted.setUserId(user.getUserId());
+        userDeleted.setName(user.getName());
+        userDeleted.setFirstLastName(user.getFirstLastName());
+        userDeleted.setSecondLastName(user.getSecondLastName());
+        userDeleted.setGmail(user.getGmail());
+        userDeleted.setUserName(user.getUserName());
+        userDeleted.setPassword(user.getPassword());
+        RolEntity rol = new RolEntity();
+        rol.setRolId(user.getRoles());
+        userDeleted.setRol(rol);
+        if (user.getFk_userId() != null) {
+            UserEntity creador = new UserEntity();
+            creador.setUserId(user.getFk_userId());
+            userDeleted.setFkUserId(creador);
+        } else {
+            userDeleted.setFkUserId(null);
+        }
+        return userDeleted;
+    }
+
+    public static User fromUserDeleteEntityToUser(UserDeletedEntity userDeleted) {
+        return new User(
+                userDeleted.getUserId(),
+                userDeleted.getName(),
+                userDeleted.getFirstLastName(),
+                userDeleted.getSecondLastName(),
+                userDeleted.getGmail(),
+                userDeleted.getUserName(),
+                userDeleted.getPassword(),
+                userDeleted.getRol().getRolId(),
+                userDeleted.getFkUserId().getUserId()
+        );
     }
 }

@@ -7,12 +7,12 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "rol")
-public class RolEntity {
+@Table(name="distribucion_teclado")
+public class DistribucionTecladoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_rol")
-    private Integer rolId;
-    @Column(name = "nombre_rol")
-    private String RolName;
+    @Column(name="id_distribucion_teclado")
+    private Integer id;
+    @Column(name="nombre_distribucion_teclado")
+    private String nombre;
 }

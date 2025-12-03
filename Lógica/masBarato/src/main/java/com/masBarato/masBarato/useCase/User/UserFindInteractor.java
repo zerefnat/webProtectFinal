@@ -5,6 +5,8 @@ import com.masBarato.masBarato.domain.repository.IUserRepositoryPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Component
 public class UserFindInteractor implements IUserFindInteractor{
@@ -22,6 +24,11 @@ public class UserFindInteractor implements IUserFindInteractor{
     @Override
     public User findUserByUsername(String username) {
         return userRepositoryPort.findUserByUsername(username);
+    }
+
+    @Override
+    public List<User> findUserByFkUserId(Integer fkUserId) {
+        return userRepositoryPort.findUserByFkUserId(fkUserId);
     }
 
 
