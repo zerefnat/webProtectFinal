@@ -13,5 +13,6 @@ public class User {
     private String gmail;
     private String userName;
     private String password;
-    private String roles;
+    private Integer roles;
+    private Integer fk_userId;
 }

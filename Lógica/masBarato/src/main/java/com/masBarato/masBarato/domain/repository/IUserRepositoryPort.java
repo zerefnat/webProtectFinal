@@ -1,6 +1,10 @@
 package com.masBarato.masBarato.domain.repository;
 
 import com.masBarato.masBarato.domain.model.User;
+import com.masBarato.masBarato.infrastructure.dataBase.sql.entity.UserEntity;
+
+import java.util.List;
+
 public interface IUserRepositoryPort {
     User findUserByUserId(Integer userId);
     User findUserByUserEmail(String email);
@@ -8,4 +12,6 @@ public interface IUserRepositoryPort {
     Boolean newUser(User user);
     Boolean updateUser(Integer userId,User user);
     User findUserByUsername(String username);
+    List<User> getAllUsers();
+    List<User> findUserByFkUserId(Integer fkUserId);
 }

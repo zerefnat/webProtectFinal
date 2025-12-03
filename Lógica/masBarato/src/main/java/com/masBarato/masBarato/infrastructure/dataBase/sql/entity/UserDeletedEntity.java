@@ -1,17 +1,18 @@
 package com.masBarato.masBarato.infrastructure.dataBase.sql.entity;
 
-
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@Table(name = "usuario")
 @Entity
-public class UserEntity {
+@Table(name ="usuario_eliminado")
+public class UserDeletedEntity {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_usuario")
     private Integer userId;
     @Column(name = "nombre")
@@ -29,6 +30,6 @@ public class UserEntity {
     @JoinColumn(name = "fk_rol", referencedColumnName = "id_rol")
     private RolEntity rol;
     @ManyToOne
-    @JoinColumn(name="fk_usuario",referencedColumnName = "id_usuario")
+    @JoinColumn(name = "fk_usuario", referencedColumnName = "id_usuario")
     private UserEntity fkUserId;
 }
