@@ -1,12 +1,18 @@
 package com.masBarato.masBarato.infrastructure.dataBase.rest.controller;
 
 
+import com.masBarato.masBarato.domain.model.Almacenamiento;
+import com.masBarato.masBarato.domain.model.DistribucionTeclado;
 import com.masBarato.masBarato.domain.model.Laptop;
+import com.masBarato.masBarato.domain.model.Marca;
 import com.masBarato.masBarato.infrastructure.dataBase.rest.Dto.in.inLaptopDto;
 import com.masBarato.masBarato.infrastructure.dataBase.rest.Dto.out.outLaptopDto;
 import com.masBarato.masBarato.infrastructure.dataBase.sql.mapper.LaptopMapper;
 import com.masBarato.masBarato.infrastructure.dataBase.sql.repository.LaptopJpaRepository;
+import com.masBarato.masBarato.useCase.Almacenamiento.IAlmacenamientoFindInteractor;
+import com.masBarato.masBarato.useCase.DistribucionTeclado.IDistribucionTecladoFindInteractor;
 import com.masBarato.masBarato.useCase.Laptop.*;
+import com.masBarato.masBarato.useCase.Marca.IMarcaFindInteractor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +30,9 @@ public class LaptopRestController {
     private final ILaptopPostInteractor laptopPostInteractor;
     private final ILaptopDeleteInteractor laptopDeleteInteractor;
     private final ILaptopPutInteractor laptopPutInteractor;
+    private final IAlmacenamientoFindInteractor almacenamientoFindInteractor;
+    private final IDistribucionTecladoFindInteractor dtFindInteractor;
+    private final IMarcaFindInteractor marcaFindInteractor;
 
     @GetMapping("/allLaptop")
     public ResponseEntity<List<outLaptopDto>> allLaptops() {
@@ -33,7 +42,10 @@ public class LaptopRestController {
         }
         List<outLaptopDto> outLaptopDtos = new ArrayList<>();
         for(Laptop laptop : laptops) {
-            outLaptopDtos.add(outLaptopDto.fromLaptopToOutLaptopDto(laptop));
+            Almacenamiento almacenamiento=almacenamientoFindInteractor.findAlmacenamientoByIdAlmacenamiento(laptop.getAlmacenamiento());
+            DistribucionTeclado dt = dtFindInteractor.findDistribucionTecladoById(laptop.getDistribucionTeclado());
+            Marca marca= marcaFindInteractor.findMarcaByIdMarca(laptop.getMarca());
+            outLaptopDtos.add(outLaptopDto.fromLaptopToOutLaptopDto(laptop,almacenamiento,dt.getNombreDistribucionTeclado(),marca.getNombreMarca()));
         }
         return ResponseEntity.ok(outLaptopDtos);
     }
@@ -44,7 +56,10 @@ public class LaptopRestController {
         if(laptop == null) {
             return ResponseEntity.noContent().build();
         }
-        outLaptopDto LaptopDto= outLaptopDto.fromLaptopToOutLaptopDto(laptop);
+        Almacenamiento almacenamiento=almacenamientoFindInteractor.findAlmacenamientoByIdAlmacenamiento(laptop.getAlmacenamiento());
+        DistribucionTeclado dt = dtFindInteractor.findDistribucionTecladoById(laptop.getDistribucionTeclado());
+        Marca marca= marcaFindInteractor.findMarcaByIdMarca(laptop.getMarca());
+        outLaptopDto LaptopDto= outLaptopDto.fromLaptopToOutLaptopDto(laptop,almacenamiento,dt.getNombreDistribucionTeclado(), marca.getNombreMarca());
         return ResponseEntity.ok(LaptopDto);
     }
 

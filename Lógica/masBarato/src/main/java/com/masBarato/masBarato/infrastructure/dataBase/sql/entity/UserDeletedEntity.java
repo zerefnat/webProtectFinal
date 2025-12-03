@@ -1,9 +1,8 @@
 package com.masBarato.masBarato.infrastructure.dataBase.sql.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+
 import lombok.Setter;
 
 @Getter

@@ -1,7 +1,6 @@
 package com.masBarato.masBarato.domain.repository;
 
 import com.masBarato.masBarato.domain.model.User;
-import com.masBarato.masBarato.infrastructure.dataBase.sql.entity.UserEntity;
 
 import java.util.List;
 
