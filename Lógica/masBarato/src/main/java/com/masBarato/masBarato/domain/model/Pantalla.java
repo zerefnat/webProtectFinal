@@ -13,6 +13,4 @@ public class Pantalla {
     private double altoPantalla;
     private TecnologiaPantalla tecnologiaPantalla;
     private boolean esTactil;
-    private double alto;
-    private double ancho;
 }

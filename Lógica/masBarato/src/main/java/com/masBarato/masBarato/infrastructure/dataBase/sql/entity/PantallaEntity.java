@@ -24,8 +24,4 @@ public class PantallaEntity {
     private TecnologiaPantalla tecnologiaPantalla;
     @Column(name = "es_tactil")
     private boolean esTactil;
-    @Column(name = "alto")
-    private double alto;
-    @Column(name = "ancho")
-    private double ancho;
 }

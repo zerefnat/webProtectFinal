@@ -16,8 +16,4 @@ public class SistemaOperativoEntity {
     private Integer idSO;
     @Column(name ="nombre_sistema_operativo")
     private String nombreSO;
-    @Column(name = "id_operativo")
-    private Integer idOperativo;
-    @Column(name = "nombre")
-    private String nombre;
 }

@@ -10,6 +10,4 @@ import lombok.Setter;
 public class SistemaOparativo {
     private Integer idSO;
     private String nombreSO;
-    private Integer idOperativo;
-    private String nombre;
 }
