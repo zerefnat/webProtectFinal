@@ -1,12 +1,15 @@
+
 package com.masBarato.masBarato.infrastructure.dataBase.rest.Dto;
 
 import com.masBarato.masBarato.domain.model.CancelledReservation;
+
+import java.util.Date;
 
 public record CancelledReservationDto(
         Integer reservationId,
         Boolean messaging,
         Float messagingPrice,
-        String creationDate,
+        Date creationDate,
         Integer userId,
         Integer laptopId
 ) {

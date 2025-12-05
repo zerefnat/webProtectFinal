@@ -1,10 +1,11 @@
+
 package com.masBarato.masBarato.infrastructure.dataBase.rest.controller;
 
 import com.masBarato.masBarato.domain.model.CancelledReservation;
 import com.masBarato.masBarato.infrastructure.dataBase.rest.Dto.CancelledReservationDto;
-import com.masBarato.masBarato.useCase.CancelledReservation.ICancelledReservationPostInteractor;
-import com.masBarato.masBarato.useCase.CancelledReservation.ICancelledReservationPutInteractor;
-import com.masBarato.masBarato.useCase.CancelledReservation.ICancelledReservationFindInteractor;
+import com.masBarato.masBarato.useCase.cancelledReservation.ICancelledReservationPostInteractor;
+import com.masBarato.masBarato.useCase.cancelledReservation.ICancelledReservationPutInteractor;
+import com.masBarato.masBarato.useCase.cancelledReservation.ICancelledReservationFindInteractor;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

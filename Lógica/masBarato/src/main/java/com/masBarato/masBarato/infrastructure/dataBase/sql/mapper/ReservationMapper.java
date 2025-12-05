@@ -1,3 +1,4 @@
+
 package com.masBarato.masBarato.infrastructure.dataBase.sql.mapper;
 
 import com.masBarato.masBarato.domain.model.Reservation;
@@ -48,10 +49,14 @@ ReservationEntity entity = new ReservationEntity();
 entity.setReservationId(reservation.getReservationId());
 entity.setMessaging(reservation.getMessaging());
 entity.setMessagingPrice(reservation.getMessagingPrice());
-entity.setCreationDate(reservation.getCreationDate());
-entity.setPickupDate(reservation.getPickupDate());
-entity.setArchived(reservation.getArchived());
 
+entity.setCreationDate(reservation.getCreationDate() == null
+        ? null
+        : new java.sql.Date(reservation.getCreationDate().getTime()));
+entity.setPickupDate(reservation.getPickupDate() == null
+        ? null
+        : new java.sql.Date(reservation.getPickupDate().getTime()));
+entity.setArchived(reservation.getArchived());
 UserEntity user = new UserEntity();
 user.setUserId(reservation.getUserId());
 entity.setUser(user);
@@ -74,8 +79,12 @@ ReservationEntity entity = new ReservationEntity();
 entity.setReservationId(reservation.getReservationId());
 entity.setMessaging(reservation.getMessaging());
 entity.setMessagingPrice(reservation.getMessagingPrice());
-entity.setCreationDate(reservation.getCreationDate());
-entity.setPickupDate(reservation.getPickupDate());
+    entity.setCreationDate(reservation.getCreationDate() == null
+            ? null
+            : new java.sql.Date(reservation.getCreationDate().getTime()));
+    entity.setPickupDate(reservation.getPickupDate() == null
+            ? null
+            : new java.sql.Date(reservation.getPickupDate().getTime()));
 entity.setArchived(reservation.getArchived());
 
 UserEntity user = new UserEntity();

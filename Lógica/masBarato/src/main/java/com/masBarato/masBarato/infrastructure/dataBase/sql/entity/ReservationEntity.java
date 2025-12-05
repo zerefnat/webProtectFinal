@@ -1,8 +1,11 @@
+
 package com.masBarato.masBarato.infrastructure.dataBase.sql.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.sql.Date;
 
 @Getter
 @Setter
@@ -21,10 +24,10 @@ public class ReservationEntity {
     private Float messagingPrice;
 
     @Column(name = "fecha_creacion")
-    private String creationDate;
+    private Date creationDate;
 
     @Column(name = "fecha_recogida")
-    private String pickupDate;
+    private Date pickupDate;
 
     @Column(name = "archivada")
     private Boolean archived;
@@ -36,4 +39,5 @@ public class ReservationEntity {
     @OneToOne
     @JoinColumn(name = "fk_laptop", referencedColumnName = "id_laptop")
     private LaptopEntity laptop;
+
 }

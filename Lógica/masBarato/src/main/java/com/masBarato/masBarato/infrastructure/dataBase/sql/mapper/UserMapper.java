@@ -4,7 +4,6 @@ import com.masBarato.masBarato.domain.model.User;
 import com.masBarato.masBarato.infrastructure.dataBase.sql.entity.RolEntity;
 import com.masBarato.masBarato.infrastructure.dataBase.sql.entity.UserDeletedEntity;
 import com.masBarato.masBarato.infrastructure.dataBase.sql.entity.UserEntity;
-import com.masBarato.masBarato.useCase.User.UserDeleteInteractor;
 
 public class UserMapper {
     public static User fromUserEntityToUser(UserEntity userEntity) {

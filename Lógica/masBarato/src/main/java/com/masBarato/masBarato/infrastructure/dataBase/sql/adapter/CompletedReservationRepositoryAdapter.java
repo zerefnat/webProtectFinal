@@ -1,3 +1,4 @@
+
 package com.masBarato.masBarato.infrastructure.dataBase.sql.adapter;
 
 import com.masBarato.masBarato.domain.model.CompletedReservation;
@@ -16,13 +17,13 @@ public class CompletedReservationRepositoryAdapter implements ICompletedReservat
 
     @Override
     public CompletedReservation findCompletedReservationByReservationId(Integer id) {
-        CompletedReservationEntity entity = jpaRepo.findByReservationId(id);
+        CompletedReservationEntity entity = jpaRepo.findCompletedReservationEntitiesByReservationId(id);
         return CompletedReservationMapper.fromEntityToDomain(entity);
     }
 
     @Override
     public List<CompletedReservation> findCompletedReservationByUserId(Integer id) {
-        List<CompletedReservationEntity> entity = jpaRepo.findReservationByUserId(id);
+        List<CompletedReservationEntity> entity = jpaRepo.findCompletedReservationEntitiesByUser_UserId(id);
         return CompletedReservationMapper.fromEntityListToDomainList(entity);
     }
 
@@ -32,4 +33,5 @@ public class CompletedReservationRepositoryAdapter implements ICompletedReservat
         jpaRepo.save(entity);
         return true;
     }
+
 }

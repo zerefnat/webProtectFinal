@@ -1,11 +1,12 @@
+
 package com.masBarato.masBarato.infrastructure.dataBase.rest.controller;
 
 import com.masBarato.masBarato.domain.model.Reservation;
 import com.masBarato.masBarato.infrastructure.dataBase.rest.Dto.ReservationDto;
-import com.masBarato.masBarato.useCase.Reservation.IReservationDeleteInteractor;
-import com.masBarato.masBarato.useCase.Reservation.IReservationFindInteractor;
-import com.masBarato.masBarato.useCase.Reservation.IReservationPostInteractor;
-import com.masBarato.masBarato.useCase.Reservation.IReservationPutInteractor;
+import com.masBarato.masBarato.useCase.reservation.IReservationDeleteInteractor;
+import com.masBarato.masBarato.useCase.reservation.IReservationFindInteractor;
+import com.masBarato.masBarato.useCase.reservation.IReservationPostInteractor;
+import com.masBarato.masBarato.useCase.reservation.IReservationPutInteractor;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -22,9 +23,9 @@ public class ReservationRestController {
     private final IReservationPutInteractor putInteractor;
     private final IReservationDeleteInteractor deleteInteractor;
 
-    @GetMapping("/{reservationId}")
-    public ResponseEntity<ReservationDto> findReservationByReservationId(@PathVariable Integer id) {
-        Optional<Reservation> reservation = Optional.ofNullable(findInteractor.findReservationByReservationId(id));
+    @GetMapping("/reservationID/{reservationId}")
+    public ResponseEntity<ReservationDto> findReservationByReservationId(@PathVariable Integer reservationId) {
+        Optional<Reservation> reservation = Optional.ofNullable(findInteractor.findReservationByReservationId(reservationId));
         if (reservation.isEmpty()) return ResponseEntity.notFound().build();
         return ResponseEntity.ok(ReservationDto.fromDomain(reservation.get()));
     }
@@ -56,4 +57,5 @@ public class ReservationRestController {
     public boolean deleteReservationById(@PathVariable Integer id) {
         return deleteInteractor.deleteReservationByReservationId(id);
     }
+
 }

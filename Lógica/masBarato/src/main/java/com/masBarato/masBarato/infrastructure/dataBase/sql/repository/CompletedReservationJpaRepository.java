@@ -1,3 +1,4 @@
+
 package com.masBarato.masBarato.infrastructure.dataBase.sql.repository;
 
 import com.masBarato.masBarato.infrastructure.dataBase.sql.entity.CancelledReservationEntity;
@@ -6,6 +7,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CompletedReservationJpaRepository extends JpaRepository<CompletedReservationEntity, Integer> {
-    CompletedReservationEntity findByReservationId(Integer reservationId);
-    List<CompletedReservationEntity> findReservationByUserId(Integer user); 
+    CompletedReservationEntity findCompletedReservationEntitiesByReservationId(Integer reservationId);
+    List<CompletedReservationEntity> findCompletedReservationEntitiesByUser_UserId(Integer user);
+
 }

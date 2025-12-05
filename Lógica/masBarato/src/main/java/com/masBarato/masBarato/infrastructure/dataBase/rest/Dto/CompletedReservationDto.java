@@ -1,13 +1,16 @@
+
 package com.masBarato.masBarato.infrastructure.dataBase.rest.Dto;
 
 import com.masBarato.masBarato.domain.model.CompletedReservation;
+
+import java.util.Date;
 
 public record CompletedReservationDto(
         Integer reservationId,
         Boolean messaging,
         Float messagingPrice,
-        String creationDate,
-        String pickupDate,
+        Date creationDate,
+        Date pickupDate,
         Integer userId,
         Integer laptopId
 ) {
@@ -37,3 +40,4 @@ public record CompletedReservationDto(
         );
     }
 }
+

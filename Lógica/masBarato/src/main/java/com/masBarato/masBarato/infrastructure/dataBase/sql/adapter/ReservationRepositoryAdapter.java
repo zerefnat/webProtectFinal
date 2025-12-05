@@ -1,3 +1,4 @@
+
 package com.masBarato.masBarato.infrastructure.dataBase.sql.adapter;
 
 import com.masBarato.masBarato.domain.model.CancelledReservation;
@@ -21,19 +22,19 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class ReservationRepositoryAdapter implements IReservationRepositoryPort, ICompletedReservationRepositoryPort, ICancelledReservationRepositoryPort{
+public class ReservationRepositoryAdapter implements IReservationRepositoryPort{
     private final ReservationJpaRepository jpaRepo;
     private final CancelledReservationJpaRepository jpaCancelledRepo;
     private final CompletedReservationJpaRepository jpaCompletedRepo;
     @Override
     public Reservation findReservationByReservationId(Integer id) {
-        ReservationEntity entity = jpaRepo.findReservationByReservationId(id);
+        ReservationEntity entity = jpaRepo.findReservationEntityByReservationId(id);
         return ReservationMapper.fromEntityToDomain(entity);
     }
 
     @Override
     public List<Reservation> findReservationByUserId(Integer id) {
-        List<ReservationEntity> entity = jpaRepo.findReservationByUserId(id);
+        List<ReservationEntity> entity = jpaRepo.findReservationEntityByUser_UserId(id);
         return ReservationMapper.fromEntityListToDomainList(entity);
     }
 
@@ -46,7 +47,7 @@ public class ReservationRepositoryAdapter implements IReservationRepositoryPort,
 
     @Override
     public Boolean updateReservation(Integer id, Reservation reservation) {
-        Optional<ReservationEntity> optionalReservationEntity = Optional.ofNullable(jpaRepo.findReservationByReservationId(id));
+        Optional<ReservationEntity> optionalReservationEntity = Optional.ofNullable(jpaRepo.findReservationEntityByReservationId(id));
         if(optionalReservationEntity.isEmpty()) {
             return false;
         }
@@ -97,39 +98,4 @@ public Boolean finishReservation(Integer id) {
     }
     return false;
 }
-
-    @Override
-    public CompletedReservation findCompletedReservationByReservationId(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public List<CompletedReservation> findCompletedReservationByUserId(Integer reservationUserId) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public Boolean newCompletedReservation(CompletedReservation reservation) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public CancelledReservation findCanceledReservationByReservationId(Integer reservationUserId) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public List<CancelledReservation> findCanceledReservationByUserId(Integer reservationUserId) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public Boolean newCancelledReservation(CancelledReservation reservation) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public Boolean updateCancelledReservation(Integer id, CancelledReservation reservation) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }

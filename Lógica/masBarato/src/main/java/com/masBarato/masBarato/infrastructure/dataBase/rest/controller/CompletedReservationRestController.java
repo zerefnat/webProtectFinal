@@ -1,9 +1,10 @@
+
 package com.masBarato.masBarato.infrastructure.dataBase.rest.controller;
 
 import com.masBarato.masBarato.domain.model.CompletedReservation;
 import com.masBarato.masBarato.infrastructure.dataBase.rest.Dto.CompletedReservationDto;
-import com.masBarato.masBarato.useCase.CompletedReservation.ICompletedReservationPostInteractor;
-import com.masBarato.masBarato.useCase.CompletedReservation.ICompletedReservationFindInteractor;
+import com.masBarato.masBarato.useCase.completedReservation.ICompletedReservationPostInteractor;
+import com.masBarato.masBarato.useCase.completedReservation.ICompletedReservationFindInteractor;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

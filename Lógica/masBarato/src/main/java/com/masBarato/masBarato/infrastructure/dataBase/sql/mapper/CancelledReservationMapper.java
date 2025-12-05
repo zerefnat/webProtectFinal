@@ -1,3 +1,4 @@
+
 package com.masBarato.masBarato.infrastructure.dataBase.sql.mapper;
 
 import com.masBarato.masBarato.domain.model.CancelledReservation;
@@ -44,8 +45,9 @@ return reservations;
         entity.setReservationId(reservation.getReservationId());
         entity.setMessaging(reservation.getMessaging());
         entity.setMessagingPrice(reservation.getMessagingPrice());
-        entity.setCreationDate(reservation.getCreationDate());
-
+        entity.setCreationDate(reservation.getCreationDate() == null
+                ? null
+                : new java.sql.Date(reservation.getCreationDate().getTime()));
         UserEntity user = new UserEntity();
         user.setUserId(reservation.getUserId());
         entity.setUser(user);
@@ -68,7 +70,9 @@ CancelledReservationEntity entity = new CancelledReservationEntity();
 entity.setReservationId(reservation.getReservationId());
 entity.setMessaging(reservation.getMessaging());
 entity.setMessagingPrice(reservation.getMessagingPrice());
-entity.setCreationDate(reservation.getCreationDate());
+    entity.setCreationDate(reservation.getCreationDate() == null
+            ? null
+            : new java.sql.Date(reservation.getCreationDate().getTime()));
 
 UserEntity user = new UserEntity();
 user.setUserId(reservation.getUserId());

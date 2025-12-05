@@ -1,3 +1,4 @@
+
 package com.masBarato.masBarato.domain.repository;
 
 import com.masBarato.masBarato.domain.model.Reservation;
@@ -11,4 +12,5 @@ public interface IReservationRepositoryPort {
     Boolean finishReservation(Integer reservationId);
     Boolean updateReservation(Integer reservationId,Reservation reservation);
 }
+
  

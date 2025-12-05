@@ -1,3 +1,4 @@
+
 package com.masBarato.masBarato.infrastructure.dataBase.sql.adapter;
 
 import com.masBarato.masBarato.domain.model.CancelledReservation;
@@ -17,13 +18,13 @@ public class CancelledReservationRepositoryAdapter implements ICancelledReservat
 
     @Override
     public CancelledReservation findCanceledReservationByReservationId(Integer id) {
-        CancelledReservationEntity entity = jpaRepo.findByReservationId(id);
+        CancelledReservationEntity entity = jpaRepo.findCancelledReservationEntitiesByReservationId(id);
         return CancelledReservationMapper.fromEntityToDomain(entity);
     }
 
      @Override
     public List<CancelledReservation> findCanceledReservationByUserId(Integer id) {
-        List<CancelledReservationEntity> entity = jpaRepo.findReservationByUserId(id);
+        List<CancelledReservationEntity> entity = jpaRepo.findCancelledReservationEntitiesByUser_UserId(id);
         return CancelledReservationMapper.fromEntityListToDomainList(entity);
     }
 
@@ -36,7 +37,7 @@ public class CancelledReservationRepositoryAdapter implements ICancelledReservat
 
     @Override
     public Boolean updateCancelledReservation(Integer id, CancelledReservation reservation) {
-        Optional<CancelledReservationEntity> optionalCancelledReservationEntity = Optional.ofNullable(jpaRepo.findByReservationId(id));
+        Optional<CancelledReservationEntity> optionalCancelledReservationEntity = Optional.ofNullable(jpaRepo.findCancelledReservationEntitiesByReservationId(id));
         if(optionalCancelledReservationEntity.isEmpty()) {
             return false;
         }
