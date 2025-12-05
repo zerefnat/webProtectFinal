@@ -1,3 +1,4 @@
+
 package com.masBarato.masBarato.infrastructure.dataBase.sql.entity;
 
 import jakarta.persistence.*;

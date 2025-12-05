@@ -1,3 +1,4 @@
+
 package com.masBarato.masBarato.infrastructure.dataBase.sql.repository;
 
 import com.masBarato.masBarato.infrastructure.dataBase.sql.entity.CancelledReservationEntity;

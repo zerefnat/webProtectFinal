@@ -1,3 +1,4 @@
+
 package com.masBarato.masBarato.infrastructure.dataBase.rest.controller;
 
 import com.masBarato.masBarato.domain.model.Reservation;
@@ -56,4 +57,5 @@ public class ReservationRestController {
     public boolean deleteReservationById(@PathVariable Integer id) {
         return deleteInteractor.deleteReservationByReservationId(id);
     }
+
 }

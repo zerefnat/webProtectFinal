@@ -1,3 +1,4 @@
+
 package com.masBarato.masBarato.infrastructure.dataBase.sql.repository;
 
 import com.masBarato.masBarato.infrastructure.dataBase.sql.entity.ReservationEntity;
@@ -8,4 +9,3 @@ public interface ReservationJpaRepository extends JpaRepository<ReservationEntit
     ReservationEntity findReservationEntityByReservationId(Integer reservationUserId);
     List<ReservationEntity> findReservationEntityByUser_UserId(Integer user);
 }
-

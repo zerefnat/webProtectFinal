@@ -1,3 +1,4 @@
+
 package com.masBarato.masBarato.infrastructure.dataBase.sql.entity;
 
 import jakarta.persistence.*;
@@ -38,4 +39,5 @@ public class ReservationEntity {
     @OneToOne
     @JoinColumn(name = "fk_laptop", referencedColumnName = "id_laptop")
     private LaptopEntity laptop;
+
 }

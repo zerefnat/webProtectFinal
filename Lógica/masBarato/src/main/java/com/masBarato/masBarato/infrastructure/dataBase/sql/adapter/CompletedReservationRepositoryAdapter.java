@@ -1,3 +1,4 @@
+
 package com.masBarato.masBarato.infrastructure.dataBase.sql.adapter;
 
 import com.masBarato.masBarato.domain.model.CompletedReservation;
@@ -32,4 +33,5 @@ public class CompletedReservationRepositoryAdapter implements ICompletedReservat
         jpaRepo.save(entity);
         return true;
     }
+
 }

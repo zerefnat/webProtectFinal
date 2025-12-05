@@ -1,3 +1,4 @@
+
 package com.masBarato.masBarato.domain.repository;
 
 import com.masBarato.masBarato.domain.model.CancelledReservation;
@@ -11,4 +12,5 @@ public interface ICancelledReservationRepositoryPort {
     List<CancelledReservation> findCanceledReservationByUserId(Integer reservationUserId);
     Boolean newCancelledReservation(CancelledReservation reservation);
     Boolean updateCancelledReservation(Integer id, CancelledReservation reservation);
+
 }

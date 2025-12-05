@@ -1,3 +1,4 @@
+
 package com.masBarato.masBarato.infrastructure.dataBase.sql.mapper;
 
 import com.masBarato.masBarato.domain.model.CompletedReservation;

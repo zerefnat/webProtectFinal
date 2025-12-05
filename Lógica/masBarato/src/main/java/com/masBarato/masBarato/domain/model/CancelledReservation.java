@@ -1,3 +1,4 @@
+LaptopsFinalDetails
 package com.masBarato.masBarato.domain.model;
 
 import lombok.AllArgsConstructor;

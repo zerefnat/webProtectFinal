@@ -1,3 +1,4 @@
+
 package com.masBarato.masBarato.infrastructure.dataBase.rest.Dto;
 
 import com.masBarato.masBarato.domain.model.CancelledReservation;

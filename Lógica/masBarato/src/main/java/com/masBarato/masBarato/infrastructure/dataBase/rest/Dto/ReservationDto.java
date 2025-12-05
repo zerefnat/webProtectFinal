@@ -1,3 +1,4 @@
+
 package com.masBarato.masBarato.infrastructure.dataBase.rest.Dto;
 
 import com.masBarato.masBarato.domain.model.Reservation;
@@ -41,4 +42,5 @@ public record ReservationDto(
                 dto.laptopId()
         );
     }
+
 }

@@ -1,3 +1,4 @@
+ LaptopsFinalDetails
 package com.masBarato.masBarato.domain.model;
 
 import lombok.AllArgsConstructor;
@@ -15,4 +16,5 @@ public class CompletedReservation {
     private Date pickupDate;
     private Integer userId;
     private Integer laptopId;
+
 }

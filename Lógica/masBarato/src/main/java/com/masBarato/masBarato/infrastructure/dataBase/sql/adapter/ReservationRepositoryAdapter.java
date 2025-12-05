@@ -1,3 +1,4 @@
+
 package com.masBarato.masBarato.infrastructure.dataBase.sql.adapter;
 
 import com.masBarato.masBarato.domain.model.CancelledReservation;
@@ -97,5 +98,4 @@ public Boolean finishReservation(Integer id) {
     }
     return false;
 }
-
 }
