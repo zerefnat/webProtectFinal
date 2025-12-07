@@ -21,6 +21,7 @@ public class UserRepositoryAdapter implements IUserRepositoryPort, IUserDeleteRe
     private final UserJpaRepository userJpaRepository;
     private final UserDeleteJpaRepository userDeleteJpaRepository;
 
+
     @Override
     public User findUserByUserId(Integer userId) {
         UserEntity userEntity= userJpaRepository.findUserByUserId(userId);

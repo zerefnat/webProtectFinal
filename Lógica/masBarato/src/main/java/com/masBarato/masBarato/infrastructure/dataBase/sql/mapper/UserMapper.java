@@ -4,6 +4,9 @@ import com.masBarato.masBarato.domain.model.User;
 import com.masBarato.masBarato.infrastructure.dataBase.sql.entity.RolEntity;
 import com.masBarato.masBarato.infrastructure.dataBase.sql.entity.UserDeletedEntity;
 import com.masBarato.masBarato.infrastructure.dataBase.sql.entity.UserEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 
 public class UserMapper {
     public static User fromUserEntityToUser(UserEntity userEntity) {
@@ -14,7 +17,7 @@ public class UserMapper {
                 userEntity.getFirstLastName(),
                 userEntity.getSecondLastName(),
                 userEntity.getGmail(),
-                userEntity.getUserName(),
+                userEntity.getUsername(),
                 userEntity.getPassword(),
                 userEntity.getRol().getRolId(),
                 userEntity.getFkUserId().getUserId()
@@ -22,7 +25,17 @@ public class UserMapper {
     }
 
     public static UserEntity fromUserToUserEntity(User user) {
+        PasswordEncoder passwordEncoder = new PasswordEncoder() {
+            @Override
+            public String encode(CharSequence rawPassword) {
+                return new BCryptPasswordEncoder().encode(rawPassword.toString());
+            }
 
+            @Override
+            public boolean matches(CharSequence rawPassword, String encodedPassword) {
+                return false;
+            }
+        };
         UserEntity userEntity = new UserEntity();
 
         userEntity.setUserId(user.getUserId());
@@ -31,7 +44,7 @@ public class UserMapper {
         userEntity.setSecondLastName(user.getSecondLastName());
         userEntity.setGmail(user.getGmail());
         userEntity.setUserName(user.getUserName());
-        userEntity.setPassword(user.getPassword());
+        userEntity.setPassword(passwordEncoder.encode(user.getPassword()));
         RolEntity rol = new RolEntity();
         rol.setRolId(user.getRoles());
         userEntity.setRol(rol);
