@@ -4,12 +4,19 @@ package com.masBarato.masBarato.infrastructure.dataBase.sql.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.io.Serializable;
+import java.util.Collection;
+import java.util.List;
 
 @Getter
 @Setter
 @Table(name = "usuario")
 @Entity
-public class UserEntity {
+public class UserEntity implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_usuario")
@@ -31,4 +38,13 @@ public class UserEntity {
     @ManyToOne
     @JoinColumn(name="fk_usuario",referencedColumnName = "id_usuario")
     private UserEntity fkUserId;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority(rol.getRolName()));
+    }
+    @Override
+    public String getUsername() {
+        return this.userName;
+    }
 }
