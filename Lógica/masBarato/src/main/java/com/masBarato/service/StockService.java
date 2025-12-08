@@ -22,7 +22,7 @@ public class StockService{
     }
 
     public Stock findByLaptopId(String id) {
-        StockEntity entity = jpaRepo.findStockEntityByLaptop_LaptopId(id);
+        StockEntity entity = jpaRepo.findStockEntityByLaptop_serialNumber(id);
         return StockMapper.fromEntityToDomain(entity);
     }
 
