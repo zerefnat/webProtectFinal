@@ -6,5 +6,5 @@ import com.masBarato.masBarato.model.entity.StockEntity;
 
 public interface StockJpaRepository extends JpaRepository<StockEntity, Integer> {
     StockEntity findStockEntityByStockId(Integer stockId);
-    StockEntity findStockEntityByLaptop_LaptopId(String laptopId);
+    StockEntity findStockEntityByLaptop_serialNumber(String laptopId);
 }
