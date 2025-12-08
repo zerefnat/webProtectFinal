@@ -1,7 +1,6 @@
 package com.masBarato.masBarato.config;
 
-
-import com.masBarato.masBarato.useCase.JwtAuthenticationFilter;
+import com.masBarato.masBarato.service.useCase.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
