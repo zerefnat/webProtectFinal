@@ -10,5 +10,4 @@ import lombok.Setter;
 public class Procesador {
     private Integer idProcesador;
     private String nombreProcesador;
-    private String nombre;
 }

@@ -72,7 +72,7 @@ public Boolean deleteReservation(Integer id) {
         jpaCancelledRepo.save(cancelled);
         jpaRepo.deleteById(id);
 
-        StockEntity stock = stockJpaRepository.findStockEntityByLaptop_LaptopId(reservation.getLaptop().getSerialNumber());
+        StockEntity stock = stockJpaRepository.findStockEntityByLaptop_serialNumber(reservation.getLaptop().getSerialNumber());
         stock.setQuantity(stock.getQuantity()+1);
         stockJpaRepository.save(stock);
 

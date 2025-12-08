@@ -2,6 +2,7 @@ package com.masBarato.masBarato.dto.out;
 
 import com.masBarato.masBarato.model.classes.Almacenamiento;
 import com.masBarato.masBarato.model.classes.Laptop;
+import com.masBarato.masBarato.model.classes.Pantalla;
 
 import java.util.Date;
 
@@ -14,18 +15,18 @@ public record outLaptopDto(
           Float precio,
           Float descuento,
           String marca,
-          Integer procesador,
-          Integer pantalla,
+          String procesador,
+          String pantalla,
           String distribucionTeclado,
           String almacenamiento,
-          Integer sistemaOperativo1,
-          Integer sistemaOperativo2,
-          Integer memoriaRam1,
-          Integer memoriaRam2,
-          Integer tarjetaVideo,
+          String  sistemaOperativo1,
+          String  sistemaOperativo2,
+           String  memoriaRam1,
+           String memoriaRam2,
+           String  tarjetaVideo,
           String userId
 ) {
-    public static outLaptopDto fromLaptopToOutLaptopDto(Laptop laptop, Almacenamiento almacenamiento,String dtName,String marcaName) {
+    public static outLaptopDto fromLaptopToOutLaptopDto(Laptop laptop, Almacenamiento almacenamiento,String dtName,String marcaName, String procesador, String sistemaOperativo1, String sistemaOperativo2, String memoriaRam1, String memoriaRam2, String tarjetaVideo, Pantalla pantalla) {
         return new outLaptopDto(
                 laptop.getSerialNumber(),
                 laptop.getLaptopModel(),
@@ -35,15 +36,15 @@ public record outLaptopDto(
                 laptop.getPrecio(),
                 laptop.getDescuento(),
                 marcaName,
-                laptop.getProcesador(),
-                laptop.getPantalla(),
+                procesador,
+                pantalla.getAnchoPantalla()+" "+ pantalla.getAltoPantalla()+" "+ pantalla.getTecnologiaPantalla()+" "+pantalla.isEsTactil(),
                 dtName,
                 almacenamiento.getTipoAlmacenamiento()+" "+almacenamiento.getTamanioAlmacenamiento()+almacenamiento.getUnidadMedida(),
-                laptop.getSistemaOperativo1(),
-                laptop.getSistemaOperativo2(),
-                laptop.getMemoriaRam1(),
-                laptop.getMemoriaRam2(),
-                laptop.getTarjetaVideo(),
+                sistemaOperativo1,
+                sistemaOperativo2,
+                memoriaRam1,
+                memoriaRam2,
+                tarjetaVideo,
                 laptop.getUserId()
         );
     }

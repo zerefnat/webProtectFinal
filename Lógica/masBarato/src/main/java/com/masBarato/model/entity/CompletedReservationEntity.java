@@ -33,6 +33,6 @@ public class CompletedReservationEntity {
     private UserEntity user;
 
     @OneToOne
-    @JoinColumn(name = "fk_laptop", referencedColumnName = "serial_number")
+    @JoinColumn(name = "fk_laptop", referencedColumnName = "numero_serie")
     private LaptopEntity laptop;
 }

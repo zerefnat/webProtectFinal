@@ -21,10 +21,10 @@ public class StockEntity {
     private Integer quantity;
 
     @OneToOne
-    @JoinColumn(name = "fk_usuario", referencedColumnName = "iusername")
+    @JoinColumn(name = "fk_usuario", referencedColumnName = "username")
     private UserEntity user;
 
     @OneToOne
-    @JoinColumn(name = "fk_laptop", referencedColumnName = "serial_number")
+    @JoinColumn(name = "fk_laptop", referencedColumnName = "numero_serie")
     private LaptopEntity laptop;
 }

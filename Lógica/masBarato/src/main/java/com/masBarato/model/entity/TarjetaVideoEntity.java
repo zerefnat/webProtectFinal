@@ -15,8 +15,4 @@ public class TarjetaVideoEntity {
     private Integer idTarjetaVideo;
     @Column(name = "nombre_tarjeta_video")
     private String nombreTarjetaVideo;
-    @Column(name = "id_tarjeta")
-    private Integer idTarjeta;
-    @Column(name = "nombre")
-    private String nombre;
 }

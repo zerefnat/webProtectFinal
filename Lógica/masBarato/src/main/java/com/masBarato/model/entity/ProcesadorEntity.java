@@ -15,6 +15,4 @@ public class ProcesadorEntity {
     private Integer idProcesador;
     @Column(name = "nombre_procesador")
     private String nombreProcesador;
-    @Column(name = "nombre")
-    private String nombre;
 }

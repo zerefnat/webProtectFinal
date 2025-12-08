@@ -10,6 +10,4 @@ import lombok.Setter;
 public class TarjetaVideo {
     private Integer idTarjetaVideo;
     private String nombreTarjetaVideo;
-    private Integer idTarjeta;
-    private String nombre;
 }
